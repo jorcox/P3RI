@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<informationNeeds>
+  <informationNeed>
+    <identifier>13-2</identifier>
+      <text>cartografía</text>
+  </informationNeed>
+  <informationNeed>
+    <identifier>02-4</identifier>
+    <text>españa</text>
+  </informationNeed>
+</informationNeeds>
