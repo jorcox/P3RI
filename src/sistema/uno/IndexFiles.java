@@ -59,7 +59,7 @@ import javax.xml.parsers.ParserConfigurationException;
  */
 public class IndexFiles {
   
-  private IndexFiles() {}
+  public IndexFiles() {}
 
   /** Index all text files under a directory. */
   public static void main(String[] args) {
@@ -238,8 +238,8 @@ public class IndexFiles {
           for (int i=0; i<lista.getLength(); i++) {
   			Node nod = lista.item(i);
   			String[] coords = nod.getTextContent().split(" ");
-  			System.out.println("west:" + Double.parseDouble(coords[0]));
-  			System.out.println("south:" + Double.parseDouble(coords[1]));
+  			//System.out.println("west:" + Double.parseDouble(coords[0]));
+  			//System.out.println("south:" + Double.parseDouble(coords[1]));
   			doc.add(new DoubleField("west", Double.parseDouble(coords[0]), Field.Store.YES));
   			doc.add(new DoubleField("south", Double.parseDouble(coords[1]), Field.Store.YES));
   		  }
@@ -247,8 +247,8 @@ public class IndexFiles {
           for (int i=0; i<lista.getLength(); i++) {
   			Node nod = lista.item(i);
   			String[] coords = nod.getTextContent().split(" ");
-  			System.out.println("east:" + Double.parseDouble(coords[0]));
-  			System.out.println("north:" + Double.parseDouble(coords[1]));
+  			//System.out.println("east:" + Double.parseDouble(coords[0]));
+  			//System.out.println("north:" + Double.parseDouble(coords[1]));
   			doc.add(new DoubleField("east", Double.parseDouble(coords[0]), Field.Store.YES));
   			doc.add(new DoubleField("north", Double.parseDouble(coords[1]), Field.Store.YES));
   		  }
@@ -259,14 +259,14 @@ public class IndexFiles {
           NodeList listaIssued = docParseado.getElementsByTagName("dcterms:issued");
           if (listaIssued.getLength()==1 && listaIssued.item(0).getTextContent()!="") {
         	  String issued = listaIssued.item(0).getTextContent().replace("-","");
-              System.out.println("issued:"+ issued);
+              //System.out.println("issued:"+ issued);
               doc.add(new StringField("issued", issued, Field.Store.YES));
           }                    
           
           NodeList listaCreated = docParseado.getElementsByTagName("dcterms:created");
           if (listaCreated.getLength()==1 && listaCreated.item(0).getTextContent()!="") {
         	  String created = listaCreated.item(0).getTextContent().replace("-","");
-              System.out.println("created:"+ created);
+              //System.out.println("created:"+ created);
               doc.add(new StringField("created", created, Field.Store.YES));
           } 
           
@@ -278,8 +278,8 @@ public class IndexFiles {
         	  String temporal = listaTemporal.item(0).getTextContent();
         	  String[] beginEnd = procesarTemporal(temporal);
         	  if (beginEnd!=null) {
-        		  System.out.println("begin:"+beginEnd[0]);
-            	  System.out.println("end:"+beginEnd[1]);
+        		  //System.out.println("begin:"+beginEnd[0]);
+            	  //System.out.println("end:"+beginEnd[1]);
             	  doc.add(new StringField("begin", beginEnd[0], Field.Store.YES));
             	  doc.add(new StringField("end", beginEnd[1], Field.Store.YES));
         	  }       	  
@@ -307,7 +307,7 @@ public class IndexFiles {
 	private static void meterTextField(Document doc, org.w3c.dom.Document result, String tag) {
 		NodeList lista = result.getElementsByTagName("dc:"+tag);
 		for (int i=0; i<lista.getLength(); i++) {
-			System.out.println(tag + " : " + lista.item(i).getTextContent());
+			//System.out.println(tag + " : " + lista.item(i).getTextContent());
 			doc.add(new TextField(tag, lista.item(i).getTextContent(), Field.Store.YES));
 		}
 	}
@@ -315,7 +315,7 @@ public class IndexFiles {
 	private static void meterStringField(Document doc, org.w3c.dom.Document result, String tag) {
 		NodeList lista = result.getElementsByTagName("dc:"+tag);
 		for (int i=0; i<lista.getLength(); i++) {
-			System.out.println(tag + " : " + lista.item(i).getTextContent());
+			//System.out.println(tag + " : " + lista.item(i).getTextContent());
 	        doc.add(new StringField(tag, lista.item(i).getTextContent(), Field.Store.YES));
 		}
 	}

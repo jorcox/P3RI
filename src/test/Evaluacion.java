@@ -46,8 +46,8 @@ public class Evaluacion {
 			double[] stats1 = calcularStats(relevancias1, resultados1);
 			double[] stats2 = calcularStats(relevancias2, resultados2);
 			
-			double prec1 = calcularPrec(relevancias1, resultados1, 10);
-			double prec2 = calcularPrec(relevancias2, resultados2, 10);
+			//double prec1 = calcularPrec(relevancias1, resultados1, 10);
+			//double prec2 = calcularPrec(relevancias2, resultados2, 10);
 			
 			double avgPrec1 = calcularAvgPrec(relevancias1, resultados1);
 			double avgPrec2 = calcularAvgPrec(relevancias2, resultados2);
@@ -56,7 +56,7 @@ public class Evaluacion {
 			System.out.println("precision\t" + stats1[0]);
 			System.out.println("recall\t" + stats1[1]);
 			System.out.println("F1\t" + stats1[2]);
-			System.out.println("prec@10\t" + prec1);
+			//System.out.println("prec@10\t" + prec1);
 			System.out.println("average_precision\t" + avgPrec1);
 			System.out.println("recall_precision");
 			ArrayList<String> rp1 = calcularRecallPrecision(relevancias1, resultados1);		
@@ -83,7 +83,7 @@ public class Evaluacion {
 			System.out.println("precision\t" + stats2[0]);
 			System.out.println("recall\t" + stats2[1]);
 			System.out.println("F1\t" + stats2[2]);
-			System.out.println("prec@10\t" + prec2);
+			//System.out.println("prec@10\t" + prec2);
 			System.out.println("average_precision\t" + avgPrec2);
 			System.out.println("recall_precision");
 			ArrayList<String> rp2 = calcularRecallPrecision(relevancias2, resultados2);
@@ -109,13 +109,13 @@ public class Evaluacion {
 			double precTotal = (stats1[0]+stats2[0])/2;
 			double recTotal = (stats1[1]+stats2[1])/2;
 			double f1total = (stats1[2]+stats2[2])/2;
-			double preca10total = (prec1+prec2)/2;
+			//double preca10total = (prec1+prec2)/2;
 			double map = (avgPrec1+avgPrec2)/2;
 			System.out.println("\n TOTAL");
 			System.out.println("precision\t" + precTotal);
 			System.out.println("recall\t" + recTotal);
 			System.out.println("F1\t" + f1total);
-			System.out.println("prec@10\t" + preca10total);
+			//System.out.println("prec@10\t" + preca10total);
 			System.out.println("MAP\t" + map);
 			System.out.println("interpolated_recall_precision");
 			for (int i=0; i<=(Math.min(stats1[1], stats2[1])*10); i++) {
